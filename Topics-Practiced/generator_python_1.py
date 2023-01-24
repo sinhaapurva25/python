@@ -1,3 +1,7 @@
+import gc
+n = gc.collect()
+print(n)
+
 def gen():
     x = 5
     yield 1

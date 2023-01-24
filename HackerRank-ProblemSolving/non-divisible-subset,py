@@ -1,0 +1,30 @@
+from collections import defaultdict
+def nonDivisibleSubset(k, s):
+
+    remainder = [item % k for item in s]
+    freqs = defaultdict(int)
+    print(remainder)
+    for elem in remainder:
+        freqs[elem] += 1
+    print(freqs)
+    total = 0
+    for key, val in freqs.items():
+        if val == 0:
+            continue
+        if key == 0:
+            total += 1
+        elif (k - key) == key:
+            total += 1
+        elif key > (k - key):
+            if (k - key) in freqs:
+                total +=  max([val, freqs[k - key]])
+            else:
+                total += val
+        elif key < (k - key):
+            if (k - key not in freqs):
+                total += val
+
+    return total
+
+nonDivisibleSubset(3, list(map(int, '1 7 2 4'.rstrip().split())))
+nonDivisibleSubset(4, list(map(int, '19 10 12 10 24 25 22'.rstrip().split())))

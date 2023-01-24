@@ -1,0 +1,79 @@
+AstraCS:prNIEtqysXQtiSWoyXSFKMta:f74368d70f62fa21ae711838deec379fc59a5a75ad691e0556d3709f91d5f97f
+
+https://www.freecodecamp.org/learn/machine-learning-with-python/tensorflow/introduction-to-tensorflow
+
+# Codes
+```
+# circular array
+a = [1,2,3,4,5]
+start = 2
+for i in range(0,len(a)):
+     print(a[(start + i) % len(a)])
+```
+```
+# numpy vs python's list
+print(1 == 1)
+print(1 != 1)
+print([] is [])
+#numpy vs python's list 
+j = np.array([])
+print("j= ",j)
+k = []
+print("k= ",k)
+if j == k: print("j==k")
+else: print("j!=k")
+```
+```
+#understanding numpy delete
+a = np.array([[10, 20], [30, 40], [50, 60], [70, 80], [90, 100], [110,120], [130,140], [150,160], [170,180], [190,200]])
+np.delete(a, 3)
+v = np.delete(a, 3)
+np.put(a, [[3],[8]], [0,0])
+print(a)
+# print("\n", v)
+```
+```
+understanding numpy where()
+arr = np.array([11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 13, 45, 89, 78, 13, 0, 78, 45, 13])
+print("\n")
+result = np.where(arr == 13)
+print(result)
+print(result[0][(len(result[0])-1)])
+print(len(result))
+print(len(result[0]))
+# print(result[0][0])
+# print('Tuple of arrays returned : ', result)
+# print("Elements with value 19 exists at following indices", result[0], sep='\n')
+```
+```
+import numpy as np
+import cv2 as cv
+green = np.uint8([[[0,255,0 ]]])
+hsv_green = cv.cvtColor(green,cv.COLOR_BGR2HSV)
+print( hsv_green )
+```
+```
+# tan and slope
+slope = 0.577350269
+print(slope)
+print((180/math.pi)*math.atan(slope))
+```
+```
+#circular array
+a = -1
+b = 1
+fibonacci = []
+for i in range(0, 587):
+    c = a+b
+    fibonacci.append(c)
+    a = b
+    b = c
+def circular_array_2(a, element, end_element):
+    i = 0
+    start = a.index(element)
+    while element != end_element:
+        element = a[(start + i) % len(a)]
+        print(element)
+        i = i + 1
+circular_array_2(fibonacci, 1263481299239945621154619718651810001943971713764067899501184731173072837429156065756267486503928793532511934548730631,46368)
+```

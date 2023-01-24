@@ -59,6 +59,9 @@ def printPattern(n, r_q, c_q, lst):
 def queensAttack(n, k, r_q, c_q, obstacles):
     
     count = 0
+    
+    # lst.extend([[i,c_q] for i in range(n,0,-1) if i!=r_q])
+    # lst.extend([[r_q,i] for i in range(1,n+1) if i!=c_q])
 
     for i in range(r_q+1,n+1):
         if [i,c_q] in obstacles:
@@ -99,27 +102,3 @@ def queensAttack(n, k, r_q, c_q, obstacles):
     # printPattern(n, r_q, c_q, lst)
 
     return count
-
-import os
-with open(r'queens-attack-test-cases\outputs.txt') as f:
-    outputs = [i.rstrip() for i in f.readlines()]
-
-for file in os.listdir(r'queens-attack-test-cases\inputs'):
-    
-    fileName = os.path.join(r'queens-attack-test-cases\inputs',file)
-    with open(fileName) as f:
-        data = [j.rstrip() for j in f.readlines()]
-    n, k = list(map(int,data[0].split(' ')))
-    r_q, c_q = list(map(int,data[1].split(' ')))
-    if k == 0:
-        obstacles = list()
-    else:
-        obstacles = [list(map(int,j.split(' '))) for j in data[2:]]
-
-    result = queensAttack(n, k, r_q, c_q, obstacles)
-
-    cse = int(file.split('.')[0].split('-')[1])
-    if result==outputs[cse]:
-        print("test case",cse, "passed")
-    else:
-        print("test case",cse, "failed")

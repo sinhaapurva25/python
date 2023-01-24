@@ -5,15 +5,22 @@ class numericalOperations:
     def __init__(self,delAttribute,nonPublic):
         self.delAttribute = delAttribute
         self._nonPublic = nonPublic
-    def isPrime(self,number):
-        c = 0
-        for i in range(1,int(number)+1):
-            if number%i==0:
-                c += 1
-        if c==2:
-            return True
-        else:
+    # def isPrime(self,number):
+    #     c = 0
+    #     for i in range(1,int(number)+1):
+    #         if number%i==0:
+    #             c += 1
+    #     if c==2:
+    #         return True
+    #     else:
+    #         return False
+    def isPrime(self, number):
+        if number <= 1:
             return False
+        for i in range(2, math.sqrt(number)+1):
+            if number%i == 0:
+                return False
+        return True
     def factorsThatArePrime(self,number):
         primfac = []
         for i in range(1,number+1):

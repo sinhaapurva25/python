@@ -1,0 +1,37 @@
+1. Anaconda PackagesNotFoundError
+	https://stackoverflow.com/questions/48493505/packagesnotfounderror-the-following-packages-are-not-available-from-current-cha
+
+2. Check available the packages with versions
+	conda list
+
+3. Install package.
+	conda install package-name
+
+4. Install package version into the environment that is currently active.
+	conda install package-name=2.3.4
+
+5. Install package version into a named environment
+	conda install package-name=2.3.4 -n some-environment
+
+5. Condas channels all update
+	conda update --all
+
+7. Go back one directory:
+	cd ..
+
+8. pip install command
+	Python 3.10 (python.org): cd C:\Users\sinha\AppData\Local\Programs\Python\Python310\Scripts
+	Python 3.10 (Microsoft App): cd C:\Users\sinha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts
+		type "pip -V", enter
+		type "pip install numpy"
+
+	Packages are installed here: C:\Users\sinha\AppData\Roaming\Python\Python38\site-packages
+	Spyder: C:\Users\sinha\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit)
+	CMake: C:\Program Files\CMake\
+	
+9. Python exes:
+	Python 3.8: C:\Users\sinha\AppData\Local\Programs\Python\Python38\python.exe
+	Python 3.10: C:\Users\sinha\AppData\Local\Programs\Python\Python310\python.exe
+
+10. Get all Python versions in Conda
+	conda search python

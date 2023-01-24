@@ -12,7 +12,7 @@
 
 # ##4_using @ function
 # def outer_div(func):  
-#     def inner(x,y):  
+#     def inner(x,y):
 #         if(x<y):  
 #            x,y = y,x  
 #         return func(x,y)  

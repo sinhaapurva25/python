@@ -1,0 +1,14 @@
+idx,date,str1,str2,str3,,
+1,08-02-2019,hi,how,are,you,
+2,30-04-2018,hi,my,name,is,apurva
+3,19-07-2022,hi,apurva,sinha,,
+
+rollNo,bday,dtl1,dtl2,,,
+1,25-04-1997,apurva,sinha,you,,
+2,31-08-1998,x,y,is,apurva,
+3,31-05-1960,hi,apurva,,,
+
+rollNo,bday,dtl1,dtl2,,,
+1,25-04-1997,apurva,sinha,you,,
+2,31-08-1998,x,y,is,apurva,
+3,31-05-1960,hi,apurva,,,
