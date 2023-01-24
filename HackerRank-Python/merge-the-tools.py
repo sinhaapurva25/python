@@ -1,14 +1,16 @@
 def merge_the_tools(string, k):
-    res = ['' for i in range(k)]
-    l = len(string)//k
-    for i in range(k):
-        w=string[i*l:((i*l)+l)]
-        unique = (list(set(w)))
-        for j in w:
-            if j in unique:
-                if j not in res[i]:
-                    res[i] = res[i] + j
-    [print(i,sep='\n') for i in res]
+    # for i in range(0, len(string), k):
+    #     s = ""
+    #     for j in string[i : i + k]:
+    #         if j not in s:
+    #             s += j          
+    #     print(s)
+    for i in range(len(string)//k):
+        res = ''
+        for j in string[i*k:(i+1)*k]:
+            if j not in res:
+                res += j
+        print(res)
     
 if __name__ == '__main__':
     string, k = input(), int(input())
