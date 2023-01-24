@@ -4,7 +4,7 @@ def gen():
     yield 2
     yield x
     yield "apurva"
-    return (9,0)
+    # return (9,0)
 print(gen())
 print(list(gen()))
 for val in gen():
