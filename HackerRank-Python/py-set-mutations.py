@@ -1,0 +1,11 @@
+A = int(input())
+sA = set(list(map(int,input().split()))[:A+1])
+N = int(input())
+for i in range(N):
+    operationName, length_sB = input().split()
+    sB = set(list(map(int,input().split()))[:int(length_sB)+1])
+    if operationName == 'intersection_update': sA.intersection_update(sB)
+    if operationName == 'update': sA.update(sB)
+    if operationName == 'symmetric_difference_update': sA.symmetric_difference_update(sB)
+    if operationName == 'difference_update': sA.difference_update(sB)
+print(sum(sA))
