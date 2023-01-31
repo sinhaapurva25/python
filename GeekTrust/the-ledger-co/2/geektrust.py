@@ -1,14 +1,17 @@
 from sys import argv
-import ledger
+import ledger_module
 
 def main():
     if len(argv) != 2:
         raise Exception("File path not entered")
     file_path = argv[1]
     f = open(file_path, 'r')
-    Lines = f.readlines()
+    lines = f.readlines()
 
-    [print(i) for i in ledger.Result(Lines)]
+    ledger = ledger_module.LedgerClass()
+    for i in ledger.result(lines):
+        print(i)
+
     
 if __name__ == "__main__":
     main()

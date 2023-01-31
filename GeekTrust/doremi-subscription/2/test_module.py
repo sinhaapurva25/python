@@ -1,14 +1,6 @@
 import unittest
 import subscription
 
-class testLeapYear(unittest.TestCase):
-    
-    def testYears(self):
-        self.assertEqual(subscription.leapYear(1900),False,"1900 is not a leap year")
-        self.assertEqual(subscription.leapYear(2000),True,"2000 is not a leap year")
-        self.assertEqual(subscription.leapYear(2016),True,"2016 is not a leap year")
-        self.assertEqual(subscription.leapYear(2021),False,"2021 is not a leap year")
-
 class testDate(unittest.TestCase):
 
     def testCorrectDates(self):

@@ -1,27 +1,26 @@
 # defining global variables
-noOfMonths = 12
-noOfMonthsNextYr = 3
+numberOfMonths = 12
 oddMonths = [1, 3, 5, 7, 8, 10, 12]
-daysOddMonths = 31
+maxDaysInOddMonths = 31
 evenMonths = [4, 6, 9, 11]
-daysEvenMonths = 30
-lpYrCondOne = 400
-lpYrCondTwo = 100
-lpYrCondThree = 4
-daysLeapFeb = 29
-daysNonLeapFeb = 28
+maxDaysInEvenMonths = 30
+leapYearConditionOne = 400
+leapYearConditionTwo = 100
+leapYearConditionThree = 4
+maxDaysInLeapFeb = 29
+maxDaysInNonLeapFeb = 28
 
-price =    {'MUSIC FREE': 0,
-            'MUSIC PERSONAL': 100,
-            'MUSIC PREMIUM': 250,
-            'VIDEO FREE': 0,
-            'VIDEO PERSONAL': 200,
-            'VIDEO PREMIUM': 500,
-            'PODCAST FREE': 0,
-            'PODCAST PERSONAL': 100,
-            'PODCAST PREMIUM': 300,
-            'FOUR_DEVICE': 50,
-            'TEN_DEVICE': 100}
+price = {'MUSIC FREE': 0,
+             'MUSIC PERSONAL': 100,
+             'MUSIC PREMIUM': 250,
+             'VIDEO FREE': 0,
+             'VIDEO PERSONAL': 200,
+             'VIDEO PREMIUM': 500,
+             'PODCAST FREE': 0,
+             'PODCAST PERSONAL': 100,
+             'PODCAST PREMIUM': 300,
+             'FOUR_DEVICE': 50,
+             'TEN_DEVICE': 100}
 
 arrangeResByKey =  ['INVALID_DATE',
                     'ADD_SUBSCRIPTION_FAILED',
@@ -32,82 +31,91 @@ arrangeResByKey =  ['INVALID_DATE',
 
 
 def leapYear(yy):
-    return ((yy % lpYrCondOne == 0) or (yy % lpYrCondTwo != 0) and (yy % lpYrCondThree == 0))
+    return ((yy % leapYearConditionOne == 0) or (yy % leapYearConditionTwo != 0) and (yy % leapYearConditionThree == 0))
 
 
-def appendZero(y):
-    if y < 10:
-        return '0' + str(y)
-    else:
-        return str(y)
-
-
-def days(calendar, noOfDays, month, year):
-    for dt in range(1, noOfDays+1):
+def days(calendar, numberOfDays, month, year):
+    for j in range(1, numberOfDays+1):
         day = ""
-        day += appendZero(dt)
-        day += '-'
-        day += appendZero(month)
-        day += '-'
-        day += str(year)
+        if j < 10:
+            day = day + '0' + str(j)
+        else:
+            day = day + str(j)
+        if month < 10:
+            day = day + '-' + '0' + str(month) + '-'
+        else:
+            day = day + '-' + str(month) + '-'
+        day = day + str(year)
         calendar.append(day)
     return calendar
 
 
-def months(calendar, daysArr, noOfMonths, yy):
-    for i in range(1,noOfMonths+1):
+def generateCalendar(yy):
+    daysArr = list()
+    calendar = list()
+    for i in range(1,numberOfMonths+1):
         
         if i in oddMonths:
-            noOfDays = daysOddMonths
+            numberOfDays = maxDaysInOddMonths
+            days(calendar, numberOfDays, i, yy)
 
         elif i in evenMonths:
-            noOfDays = daysEvenMonths
+            numberOfDays = maxDaysInEvenMonths
+            days(calendar, numberOfDays, i, yy)
 
         else:
             if leapYear(yy):
-                noOfDays = daysLeapFeb
+                numberOfDays = maxDaysInLeapFeb
             else:
-                noOfDays = daysNonLeapFeb
+                numberOfDays = maxDaysInNonLeapFeb
+            days(calendar, numberOfDays, i, yy)
         
-        days(calendar, noOfDays, i, yy)
-        
-        daysArr.append(noOfDays)
-    return daysArr, calendar
-
-
-def getCalendar(yy):
-    daysArr = list()
-    calendar = list()
-    
-    months(calendar, daysArr, noOfMonths, yy)
+        daysArr.append(numberOfDays)
     
     yy += 1
-    months(calendar, daysArr, noOfMonthsNextYr, yy)
+    
+    numberOfDays = maxDaysInOddMonths
+    days(calendar, numberOfDays, 1, yy)
+    daysArr.append(numberOfDays)
+
+    if leapYear(yy):
+        numberOfDays = maxDaysInLeapFeb
+    else:
+        numberOfDays = maxDaysInNonLeapFeb
+    days(calendar, numberOfDays, 2, yy)
+    daysArr.append(numberOfDays)
+
+    numberOfDays = maxDaysInOddMonths
+    days(calendar, numberOfDays, 3, yy)
+    daysArr.append(numberOfDays)
 
     return daysArr, calendar
 
 
 def validDate(dd, mm, yy):
 
-    validDateBool = True
+    validDateBoolean = True
 
-    if mm > noOfMonths:
-        validDateBool = False
+    lY = None
+
+    if mm > numberOfMonths:
+        validDateBoolean = False
     else:
         if mm in oddMonths:
-            if dd > daysOddMonths:
-                validDateBool = False
+            if dd > maxDaysInOddMonths:
+                validDateBoolean = False
         elif mm in evenMonths:
-            if dd > daysEvenMonths:
-                validDateBool = False
+            if dd > maxDaysInEvenMonths:
+                validDateBoolean = False
         else:
-            if leapYear(yy):
-                if dd > daysLeapFeb:
-                    validDateBool = False
+            lY = leapYear(yy)
+            if lY:
+                if dd > maxDaysInLeapFeb:
+                    validDateBoolean = False
             else:
-                if dd > daysNonLeapFeb:
-                    validDateBool = False
-    return validDateBool
+                if dd > maxDaysInNonLeapFeb:
+                    validDateBoolean = False
+    return validDateBoolean
 
 
 def calculate(Lines):
@@ -116,11 +124,11 @@ def calculate(Lines):
     dateIndex = 1
     firstLineIndex = 0
     dd, mm, yy = list(map(int, Lines[firstLineIndex].split(" ")[dateIndex].split("-")))
-    validDateBool = validDate(dd, mm, yy)
+    validDateBoolean = validDate(dd, mm, yy)
     
     invalidDateString = 'INVALID_DATE'
-    if validDateBool:
-        daysArr, calendar = getCalendar(yy)
+    if validDateBoolean:
+        daysArr, calendar = generateCalendar(yy)
         presentDay = sum(daysArr[:mm-1]) + dd -1
     else:
         res.append(invalidDateString)
@@ -136,7 +144,7 @@ def calculate(Lines):
         if 'ADD' in line[0]:# if line[0].split("_")[0] == 'ADD':
             task, category, plan = line
 
-            if validDateBool:
+            if validDateBoolean:
 
                 if category in Categories.keys():
                     
@@ -171,7 +179,7 @@ def calculate(Lines):
         
         else:
             
-            if validDateBool:
+            if validDateBoolean:
                 res.append('RENEWAL_AMOUNT ' + str(renewalAmount))
             
             else:
