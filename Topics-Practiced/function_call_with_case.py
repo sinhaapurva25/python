@@ -10,7 +10,7 @@ def square(x):
 def invalid_op(x):
   raise Exception("Invalid operation")
 
-def perform_operation(line, key):
+def perform_operation(line, case):
   # If operation_args wasn't provided (i.e. it is None), set it to be an empty dictionary
   
   ops = {
@@ -19,7 +19,7 @@ def perform_operation(line, key):
     "square": square
   }
   
-  chosen_operation_function = ops.get(key, invalid_op)
+  chosen_operation_function = ops.get(case, invalid_op)
   
   return chosen_operation_function(line)
   

@@ -11,14 +11,17 @@ class ResultClass(calculate_module.CalculateClass):
     def __choosen_operation(self, line):
         return f"{line[1]}-{line[2]}"
 
-    def __loan(self, key, line):
+    def __loan(self, line):
+        key = self.__choosen_operation(line)
         self.amounts[key] = self._get_amounts(int(line[3]), int(line[4]), int(line[5]))
         self.installments[key] = self._get_installments(self.amounts[key], int(line[4]))
 
-    def __payment(self, key, line):
+    def __payment(self, line):
+        key = self.__choosen_operation(line)
         self.payment_array[key] = list(map(int, line[3:]))
 
-    def __balance(self, key, line):
+    def __balance(self, line):
+        key = self.__choosen_operation(line)
         amount_paid, remaining_emi = self._get_amount_paid_and_remaining_emi(int(line[3]),
                                                                              self.installments[key],
                                                                              key,
@@ -30,13 +33,12 @@ class ResultClass(calculate_module.CalculateClass):
         raise Exception("Invalid operation")
 
     def __perform_operation(self, line):
-        key = self.__choosen_operation(line)
 
         ops = {'LOAN': self.__loan,
                'PAYMENT': self.__payment,
                'BALANCE': self.__balance}
 
-        chosen_operation_function = ops.get(key, self.__invalid_op)
+        chosen_operation_function = ops[line[0]]
 
         return chosen_operation_function(line)
 
