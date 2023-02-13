@@ -1,0 +1,12 @@
+Below are some sample BlackRock interview questions on coding asked at the BlackRock interview:
+
+Given a string “S” containing a set of words, transform it to appear in the reverse order. One or more spaces separate words in s. (Solution)
+Given an unsorted set of numbers from 1 to N with exactly two missing numbers, find those two missing numbers. (Solution)
+You are given an array of integers, arr, of size n, analogous to a continuous stream of integers input. Your task is to find “K” largest elements from a given stream of numbers. (Solution)
+Given a binary tree “T,” write a code to generate the mirror image of the tree. (Solution)
+Given various coin types defining a currency system, find the minimum number of coins required to express a given amount of money. Assume an infinite supply of coins of every kind. (Solution).
+Given a partially filled two-dimensional integer array, fill all the empty cells such that each row, each column, and each 3 x 3 subgrid (as highlighted below by bolder lines) has every digit from 1 to 9 exactly once. (Solution)
+Given a sequence, return its next lexicographically greater permutation. If such a permutation does not exist, then return it in ascending order. (Solution)
+a) Given A Graph, Build A New One With Reversed Edges b) Given a strongly connected directed graph, build a new graph with the same number of nodes but every edge reversed. This is also called transposing a graph. (Solution)
+Implement an iterator over a binary tree with integer values. Your iterator will be initialized with the root node. 1. next() method must return the next number in the in-order traversal of the tree. 2. hasNext() method must return whether the next element exists. (Solution)
+Given an integer array arr of size n, find all magic triplets in it. A Magic triplet is a group of three numbers whose sum is zero. (Solution)
