@@ -35,11 +35,13 @@ def heapSort(arr):
     # Build a maxheap.
     for i in range(N // 2 - 1, -1, -1):
         heapify(arr, N, i)
+        # nlogn
 
     # One by one extract elements
-    for i in range(N - 1, 0, -1):
+    for i in range(N - 1, 0, -1): # 6, 5, 4, 3, 2, 1, 0
         arr[i], arr[0] = arr[0], arr[i]  # swap
         heapify(arr, i, 0)
+        # nlogn
 
 
 # Driver's code

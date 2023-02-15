@@ -1,0 +1,29 @@
+Some of the most asked questions in a 𝐍𝐞𝐭𝐟𝐥𝐢𝐱 Software engineer interview.
+
+1. Determine if the sum of three integers is equal to the given value
+(Details here: https://lnkd.in/deTdUHyJ)
+
+2. Set columns and rows as zeros (Details here: https://lnkd.in/dMFVKw8Z)
+
+3. Add two integers (Details here: https://lnkd.in/d6_crmuZ)
+
+4. Intersection point of two linked lists (Details here: https://lnkd.in/dEmS8Gjq)
+
+5. Convert binary tree to doubly linked list (Details here: https://lnkd.in/dUCUQsBR)
+
+6. Is Binary Tree a Binary Search Tree? (Details here: https://lnkd.in/daduGGzj)
+
+7. Reverse words in a sentence (Details here : https://lnkd.in/dZjxdGp9)
+
+8. Segment string into dictionary words (Details here: https://lnkd.in/dCnvEMpK)
+
+9. How many ways can you make change with coins and a total amount (Details here: https://lnkd.in/dvDPXaTN)
+
+10. Given a set of integers, find all subsets (Details here: https://lnkd.in/dpgRBKB5)
+
+11. Minimum Spanning tree (Details here: https://lnkd.in/dMw8HpeA)
+
+12. Closest meeting point (Details here: https://lnkd.in/dZduJ22s)
+
+13. Print balanced parentheses for a given number 'n' (Details here: 
+https://lnkd.in/dqV5BQAf)
