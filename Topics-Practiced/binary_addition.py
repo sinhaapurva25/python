@@ -1,4 +1,4 @@
-num = 13
+num = 79
 
 dec = "{:>d}".format(num+num)
 print(dec)
