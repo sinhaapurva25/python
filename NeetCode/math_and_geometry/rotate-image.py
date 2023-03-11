@@ -26,6 +26,6 @@ np.random.seed(7)
 matrix = [[int(np.random.rand() * 10) for i in range(1, 6)] for j in range(1, 6)]
 f.rotate(matrix)
 print(matrix)
-# matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
-# f.rotate(matrix)
-# print(matrix)
+matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
+f.rotate(matrix)
+print(matrix)
