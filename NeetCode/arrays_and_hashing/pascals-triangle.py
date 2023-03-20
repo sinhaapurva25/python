@@ -8,11 +8,7 @@ class Solution:
             else:
                 k = [0]+res[i - 1]
                 l = res[i - 1]+[0]
-                s = 0
-                res.append([])
-                while s <= i:
-                    res[i].append(k[s] + l[s])
-                    s += 1
+                res.append([k[s]+l[s] for s in range(i+1)])
         return res
 
 

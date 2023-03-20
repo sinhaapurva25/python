@@ -11,7 +11,8 @@ class Solution:
                 dct[i] = 1
         return res
 
+
 f = Solution()
-print(f.containsDuplicate([1,2,3,1]))
-print(f.containsDuplicate([1,2,3,4]))
-print(f.containsDuplicate([1,1,1,3,3,4,3,2,4,2]))
+print(f.containsDuplicate([1, 2, 3, 1]))
+print(f.containsDuplicate([1, 2, 3, 4]))
+print(f.containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]))
