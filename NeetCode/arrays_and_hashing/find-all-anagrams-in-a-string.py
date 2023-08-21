@@ -1,4 +1,4 @@
-class Solution:
+'''
     def isAnagram(self, s1: list, s2: list):
         if len(s1)!=len(s2) or set(s1)!=set(s2):
             return False
@@ -28,34 +28,60 @@ class Solution:
             if self.isAnagram(list(arr[i]), list(p)):
                 res.append(i)
         return res
-    # def findAnagrams(self, s: str, p: str):
-    #
-    #     frequency_of_p = dict()
-    #     for i in p:
-    #         if i in frequency_of_p:
-    #             frequency_of_p[i] += 1
-    #         else:
-    #             frequency_of_p[i] = 1
-    #
-    #     res = list()
-    #
-    #     for i in range(len(s)):
-    #         if i + len(p) > len(s):
-    #             pass
-    #         else:
-    #             a = s[i: i + len(p)]
-    #
-    #             frequency=dict()
-    #             for j in a:
-    #                 if j in frequency:
-    #                     frequency[j] += 1
-    #                 else:
-    #                     frequency[j] = 1
-    #             if frequency == frequency_of_p:
-    #                 res.append(i)
-    #
-    #     return res
+'''
+'''
+    def findAnagrams(self, s: str, p: str):
 
+        frequency_of_p = dict()
+        for i in p:
+            if i in frequency_of_p:
+                frequency_of_p[i] += 1
+            else:
+                frequency_of_p[i] = 1
+
+        res = list()
+
+        for i in range(len(s)):
+            if i + len(p) > len(s):
+                pass
+            else:
+                a = s[i: i + len(p)]
+
+                frequency=dict()
+                for j in a:
+                    if j in frequency:
+                        frequency[j] += 1
+                    else:
+                        frequency[j] = 1
+                if frequency == frequency_of_p:
+                    res.append(i)
+
+        return res
+'''
+
+class Solution:
+    def findAnagrams(selfself, s: str, p:str):
+        frequency_of_p = dict()
+        for i in p:
+            if i in frequency_of_p:
+                frequency_of_p[i] += 1
+            else:
+                frequency_of_p[i] = 1
+        freq = dict()
+        res = list()
+        for i in range(len(s)):
+            if s[i] in freq:
+                freq[s[i]] += 1
+            else:
+                freq[s[i]] = 1
+            if i >= len(p):
+                if s[i-len(p)] in freq:
+                    freq[s[i-len(p)]] -= 1
+                    if freq[s[i-len(p)]] == 0:
+                        del freq[s[i-len(p)]]
+            if freq == frequency_of_p:
+                res.append(i-len(p)+1)
+        return res
 
 s = Solution()
 res = s.findAnagrams('abab', 'ab')
