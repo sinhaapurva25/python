@@ -1,20 +1,17 @@
 def binary_search(arr, element, start, end):
-    if start <= end:
-        mid = (start+end)//2
+    mid = (start+end)//2
 
-        if mid < 0 or mid > len(arr)-1:
-            return -1
+    if mid < 0 or mid > len(arr)-1 or start > end:
+        return -1
 
-        if element == arr[mid]:
-            return mid
-        elif element < arr[mid]:
-            end = mid - 1
-            return binary_search(arr, element, start, end)
-        else:
-            start = mid + 1
-            return binary_search(arr, element, start, end)
-
-    return -1
+    if element == arr[mid]:
+        return mid
+    elif element < arr[mid]:
+        end = mid - 1
+        return binary_search(arr, element, start, end)
+    else:
+        start = mid + 1
+        return binary_search(arr, element, start, end)
 
 
 
