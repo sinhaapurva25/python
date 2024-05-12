@@ -19,6 +19,4 @@ class Solution:
     def searchInsert(self, nums: list, target: int) -> int:
         start = 0
         end = len(nums)-1
-
-
-        binary_search(nums, target, start, end)
+        self.binary_search(nums, target, start, end)
