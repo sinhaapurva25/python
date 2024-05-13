@@ -1,26 +1,18 @@
 class Solution:
     def topKFrequent(self, nums: list, k: int) -> list:
-        dct = dict()
-        res = []
-        mx = 0
+        freq = dict()
         for i in nums:
-            if i in dct:
-                dct[i] += 1
+            if i in freq:
+                freq[i] += 1
             else:
-                dct[i] = 1
-            if dct[i] > mx:
-                mx = dct[i]
-                res = [i]
-        if len(res) == 1:
-            mx2 = mx+1
-            for k, v in dct.items():
-                if k!=res[0]:
-                    if mx-v <= mx2:
-                        mx2 = v
-            if mx2!=mx+1:
-                res.append(mx2)
-        return res
+                freq[i] = 1
+        sorted_array = [key for key, val in sorted(freq.items(), key=lambda item: item[1], reverse=True)]
+        if len(sorted_array) <= k:
+            return sorted_array
+        else:
+            return sorted_array[:k]
 
-f = Solution()
-print(f.topKFrequent(nums = [1,1,1,2,2,3], k = 2))
-print(f.topKFrequent(nums = [1], k = 1))
+
+s = Solution()
+print(s.topKFrequent([1, 1, 1, 2, 2, 3], k=2))
+print(s.topKFrequent(nums=[1], k=1))

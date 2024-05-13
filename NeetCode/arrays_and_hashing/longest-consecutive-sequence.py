@@ -16,7 +16,6 @@ class BruteForceSolution:
 
         return mx
 
-
 from collections import defaultdict
 
 
@@ -33,11 +32,39 @@ class Solution:
         print(dct)
 
 f = BruteForceSolution()
-# f = Solution()
-# print(f.longestConsecutive(nums=[100, 4, 200, 1, 3, 2]))
-# print(f.longestConsecutive(nums=[0, 3, 7, 2, 5, 8, 4, 6, 0, 1]))
-# print(f.longestConsecutive(nums=[1, 2, 0, 1]))
-# print(f.longestConsecutive(nums=[0]))
-# print(f.longestConsecutive(nums=[0, 0]))
-# print(f.longestConsecutive(nums=[]))
-print(f.longestConsecutive(nums=[-6,-1,-1,9,-8,-6,-6,4,4,-3,-8,-1]))
+
+class Solution:
+    def longestConsecutive(self, nums: list) -> int:
+
+        if len(nums) < 1:
+            return 1
+        nums.sort()
+        # diff_nums = [None] * (len(nums) - 1)
+        # for i in range(len(nums) - 1):
+        #     diff_nums[i] = nums[i + 1] - nums[i]
+        # print(diff_nums)
+        # print(dict([1, 2, 3]))
+        # return 0
+
+        present_largest_subsequence = 0
+        largest_subsequence = 0
+        for i in range(len(nums)):
+            if i != 0:
+                if nums[i] == 1 and nums[i-1] == 1:
+                    present_largest_subsequence += 1
+                    if present_largest_subsequence > largest_subsequence:
+                        largest_subsequence = present_largest_subsequence
+                else:
+                    present_largest_subsequence = 0
+                    
+        return largest_subsequence
+
+s = Solution()
+print(s.longestConsecutive(nums=[100, 4, 200, 1, 3, 2]))
+# print(s.longestConsecutive(nums=[0, 3, 7, 2, 5, 8, 4, 6, 0, 1]))
+# print(s.longestConsecutive(nums=[100, 4, 200, 1, 3, 2]))
+# print(s.longestConsecutive(nums=[0, 3, 7, 2, 5, 8, 4, 6, 0, 1]))
+# print(s.longestConsecutive(nums=[1, 2, 0, 1]))
+# print(s.longestConsecutive(nums=[0]))
+# print(s.longestConsecutive(nums=[0, 0]))
+# print(s.longestConsecutive(nums=[]))
