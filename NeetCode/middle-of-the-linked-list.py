@@ -9,6 +9,7 @@ class Solution:
         while head!= None:
             head_arr.append(head)
             head = head.next
+        print(head_arr, len(head_arr))
         return head_arr[len(head_arr)//2]
 s = Solution()
 print(s.middleNode(head = [1,2,3,4,5]))
