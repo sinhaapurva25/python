@@ -47,3 +47,7 @@ class Solution:
 s = Solution()
 print(s.reverseVowels("hello"))
 print(s.reverseVowels("leetcode"))
+# Next challenges:
+# Remove Vowels from a String
+# Faulty Keyboard
+# Sort Vowels in a String
