@@ -11,6 +11,15 @@ class Solution:
             return sorted_array
         else:
             return sorted_array[:k]
+        # ==================================
+        # frq = dict()
+        # for i in range(len(nums)):
+        #     if nums[i] in frq:
+        #         frq[nums[i]] += 1
+        #     else:
+        #         frq[nums[i]] = 1
+        # sorted_frq = sorted(frq.items(), key=lambda item: item[1], reverse=True)
+        # return [i[0] for i in sorted_frq][:k]
 
 
 s = Solution()
