@@ -1,37 +1,38 @@
 class Solution:
 
     def isValidSudoku(self, board: list) -> bool:
-        g = [[1, 2, 3],
-             [4, 5, 6],
-             [7, 8, 9]]
-        gds = list()
 
-        for i in range(3):
-            for j in range(3):
-                gds.append([g[i], g[j]])
-
-        g = list()
-        for i in gds:
-            # print(i)
-            _ = list()
-            for j in i[0]:
-                for k in i[1]:
-                    _.append([j, k])
-            g.append(_)
-            # print(_)
-        # print(len(g))
         for i in range(9):
-            rw = [int(board[i][j]) for j in range(9) if board[i][j] != '.']
+            rw = [int(j) for j in board[i] if j != '.']
             cl = [int(board[j][i]) for j in range(9) if board[j][i] != '.']
-            gd = [int(board[j[0]-1][j[1]-1]) for j in g[i] if board[j[0]-1][j[1]-1] != '.']
-            if len(set(rw)) != len(rw) or len(set(cl)) != len(cl) or len(set(gd)) != len(gd):
+
+            if 0 <= i < 3:
+                m = range(3)
+            elif 3 <= i < 6:
+                m = range(3, 6)
+            else:
+                m = range(6, 9)
+
+            n = range((i % 3) * 3, ((i % 3) * 3) + 3)
+
+            # # ROWS AND COLS of ith GRID
+            # print("i: {}, m: {}, n: {}".format(i, m, n))
+
+            gd = [int(board[grid_row][grid_col]) for grid_row in m for grid_col in n if
+                  board[grid_row][grid_col] != "."]
+
+            # print(rw, cl, gd)
+
+            if len(rw) != len(set(rw)) \
+                    or len(cl) != len(set(cl)) \
+                    or len(gd) != len(set(gd)):
                 return False
         return True
 
 
 f = Solution()
 print(f.isValidSudoku(board=
-                            [["5", "3", ".", ".", "7", ".", ".", ".", "."]
+                      [["5", "3", ".", ".", "7", ".", ".", ".", "."]
                           , ["6", ".", ".", "1", "9", "5", ".", ".", "."]
                           , [".", "9", "8", ".", ".", ".", ".", "6", "."]
                           , ["8", ".", ".", ".", "6", ".", ".", ".", "3"]
@@ -50,3 +51,15 @@ print(f.isValidSudoku(board=
                           , [".", "6", ".", ".", ".", ".", "2", "8", "."]
                           , [".", ".", ".", "4", "1", "9", ".", ".", "5"]
                           , [".", ".", ".", ".", "8", ".", ".", "7", "9"]]))
+print(f.isValidSudoku(board=
+                      [[".", ".", "4", ".", ".", ".", "6", "3", "."],
+                       [".", ".", ".", ".", ".", ".", ".", ".", "."],
+                       ["5", ".", ".", ".", ".", ".", ".", "9", "."],
+                       [".", ".", ".", "5", "6", ".", ".", ".", "."],
+                       ["4", ".", "3", ".", ".", ".", ".", ".", "1"],
+                       [".", ".", ".", "7", ".", ".", ".", ".", "."],
+                       [".", ".", ".", "5", ".", ".", ".", ".", "."],
+                       [".", ".", ".", ".", ".", ".", ".", ".", "."],
+                       [".", ".", ".", ".", ".", ".", ".", ".", "."]]))
+
+# Note: The solution that you posted on 28-03-2023 did not seem to be your logic. The one that you posted on 16-06-2024 is yours.
