@@ -1,0 +1,7 @@
+        head = None
+        while head_of_reversed_ll != None:
+            tmp = head_of_reversed_ll.next
+            head_of_reversed_ll.next = head
+            head = head_of_reversed_ll
+            head_of_reversed_ll = tmp
+        return head

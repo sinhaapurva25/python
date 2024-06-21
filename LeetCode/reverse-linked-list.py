@@ -22,7 +22,8 @@ class Solution:
 
 
 s = Solution()
-tc = [[1, 2, 3, 4, 5], [1, 2], [1], []]
+# tc = [[1, 2, 3, 4, 5], [1, 2], [1], []]
+tc = [[1]]
 for t in tc:
     # FROM LIST TO LISTNODE
     if len(t) > 0:
