@@ -1,29 +1,27 @@
-# https://www.geeksforgeeks.org/reverse-a-linked-list/
-
-# Definition for singly-linked list.
 from typing import Optional, List
 
 
+# Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
-class Solution:
 
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        prev = None
-        while head != None:
-            tmp = head.next
-            head.next = prev
-            prev = head
-            head = tmp
-        return prev
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        res = head
+        while res != None and res.next!=None:
+            if res.val == res.next.val:
+                res.next = res.next.next
+            else:
+                res = res.next
+        return head
 
 
 s = Solution()
-tc = [[1, 2, 3, 4, 5], [1, 2], [1], []]
-# tc = [[1]]
+tc = [[1, 1, 2], [1, 1, 2, 3, 3], [1, 1, 1]]
+# tc = [[1, 1, 1]]
 for t in tc:
     # FROM LIST TO LISTNODE
     if len(t) > 0:
@@ -33,7 +31,7 @@ for t in tc:
             tail = tail.next
     else:
         head = None
-    reversed_ll = s.reverseList(head)
+    reversed_ll = s.deleteDuplicates(head)
 
     # FROM LISTNODE TO LIST
     tmp = reversed_ll

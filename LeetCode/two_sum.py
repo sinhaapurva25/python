@@ -24,33 +24,28 @@
 #                 return [i, idx]
 # Runtime: 548 ms; Beats: 41.26%
 # Memory: 14.9 MB; Beats: 91.28%
-
+from typing import List
 class Solution:
-    def twoSum(self, nums: list, target: int) -> list:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         dct = dict()
-        res = list()
-        for i, v in enumerate(nums):
-            diff = target - v
+        for j in range(len(nums)):
+            diff = target - nums[j]
             if diff in dct:
-                res.append([dct[diff], i])
-            dct[v] = i
-        return res
+                return [nums[j], diff]
+            dct[nums[j]] = diff
 
-
-# Runtime: 62 ms; Beats: 76.65%
-# Memory: 15.4 MB; Beats 6.13%
 ''' HeapSort followed by binary Search won't work,
 because you will end up changing the original indices nums '''
 f = Solution()
-# print(f.twoSum(nums=[2, 7, 11, 15], target=9))
-# print(f.twoSum(nums=[3, 2, 4], target=6))
+# print(f.twoSum(nums=[2, 3, 7, -1, 4, 3], target=6))
+print(f.twoSum(nums=[3, 2, 4], target=6))
 # print(f.twoSum(nums=[3, 3], target=6))
 # print(f.twoSum(nums=[-1, 1], target=0))
 # print(f.twoSum(nums=[-1, -1], target=0))
 # print(f.twoSum(nums=[-1, 3], target=0))
 # print(f.twoSum(nums=[-1, 3, 1], target=4))
 # print(f.twoSum(nums=[-1, 3, 1, 4, 0], target=4))
-print(f.twoSum(nums=[1, 0, 1, -1, 3, -1, 0, -2, 2, -1, -3, 1, -2, 2, 0], target=0))
+# print(f.twoSum(nums=[1, 0, 1, -1, 3, -1, 0, -2, 2, -1, -3, 1, -2, 2, 0], target=0))
 
 # Next challenges:
 # 3Sum
