@@ -23,6 +23,8 @@
         <list>
           <option value="set.append" />
           <option value="str.split" />
+          <option value="str.extend" />
+          <option value="dict.get" />
         </list>
       </option>
     </inspection_tool>
