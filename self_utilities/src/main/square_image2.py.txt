@@ -1,0 +1,34 @@
+
+Apurva Sinha <sinhaapurva25@gmail.com>
+Wed, Dec 14, 2022, 10:34 PM
+to me
+
+import cv2
+import numpy as np
+# img = cv2.imread(r'C:\Users\sinha\Downloads\WhatsApp Image 2022-05-26 at 8.16.14 PM (1).jpeg')
+# h,w,c = img.shape
+# print(h,w,c)
+# img_copy = np.zeros((max(h,w), max(h,w), 3), dtype="uint8")+255
+# if h>w:
+#     img_copy[:, int((h-w)/2):int(w+(h-w)/2) ] = img
+# else:
+#     img_copy[int((w-h)/2):int(h+(w-h)/2), : ] = img
+# cv2.imwrite(r'C:\Users\sinha\Downloads\WhatsApp Image 2022-05-26 at 8.16.14 PM (1)_copy.jpeg',img_copy)
+
+import os
+
+folder = r'C:\Users\sinha\Downloads\attachments'
+for i in os.listdir(folder):
+    # if i.split('.')[1] == 'heic':
+    #     print(i)
+    img = cv2.imread(os.path.join(folder,i))
+    h,w,c = img.shape
+    # print(h,w,c)
+    img_copy = np.zeros((max(h,w), max(h,w), 3), dtype="uint8")+255
+    if h>w:
+        img_copy[:, int((h-w)/2):int(w+(h-w)/2) ] = img
+    elif w>h:
+        img_copy[int((w-h)/2):int(h+(w-h)/2), : ] = img
+    else:
+        img_copy = img
+    cv2.imwrite(os.path.join(r'C:\Users\sinha\Downloads\attachmentsss',i.split('.')[0]+"_copy."+i.split('.')[1]),img_copy)
