@@ -46,3 +46,21 @@ print("t2: {}".format(time.time() - s))
 # Number of Arithmetic Triplets
 # Minimum Sum of Mountain Triplets I
 # Minimum Sum of Mountain Triplets II
+
+
+class Solution:
+    def threeSum(self, nums):
+        dct = dict()
+        for i in range(len(nums)):
+            for j in range(len(nums)):
+                if i != j:
+                    dct[(nums[i]+nums[j])*-1] = [nums[i],nums[j]]
+
+        [print(k,dct[k]) for k in dct]
+        res = list()
+        for k in dct:
+            if k in nums:
+                res.append(dct[k].append(k))
+        return res
+s = Solution()
+print(s.threeSum([-1,0,1,2,-1,-4]))

@@ -1,6 +1,4 @@
-# max([int(input()) for _ in range(int(input()))].sort())
-
-n = int(input())
-arr = sorted(list(map(int,input().split()))[:n])
-arr.pop()
-print(arr.pop())
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    print(sorted(list(set(arr)),reverse=True)[1])
